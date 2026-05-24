@@ -7,5 +7,9 @@ const students = [
 ];
 
 const approvedStudents = students.filter((student) => student.approved);
+const approvedStudentsByGrade = students.filter(
+  (student) => student.grade >= 7,
+);
 
 console.log(approvedStudents);
+console.log(approvedStudentsByGrade);
