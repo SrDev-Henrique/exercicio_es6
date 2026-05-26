@@ -1,15 +1,17 @@
 const students = [
-  { name: "Ana Silva", grade: 8.5, approved: true },
-  { name: "Bruno Costa", grade: 4.2, approved: false },
-  { name: "Carla Souza", grade: 9.0, approved: true },
-  { name: "Diego Lima", grade: 5.8, approved: false },
-  { name: "Elena Martins", grade: 7.1, approved: true },
+  { name: "Ana Silva", grade: 8.5 },
+  { name: "Bruno Costa", grade: 4.2 },
+  { name: "Carla Souza", grade: 9.0 },
+  { name: "Diego Lima", grade: 5.8 },
+  { name: "Elena Martins", grade: 7.1 },
 ];
 
-const approvedStudents = students.filter((student) => student.approved);
-const approvedStudentsByGrade = students.filter(
-  (student) => student.grade >= 7,
-);
+const isStudentApproved = (student) => student.grade >= 6;
+
+const approveStudents = () => {
+  return students.filter(isStudentApproved);
+};
+
+const approvedStudents = approveStudents();
 
 console.log(approvedStudents);
-console.log(approvedStudentsByGrade);

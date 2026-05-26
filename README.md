@@ -1,6 +1,6 @@
 # Exercício ES6 — Filtrar alunos aprovados
 
-Este projeto é um exercício de JavaScript (ES6+) que utiliza o método `filter()` para selecionar apenas os alunos aprovados de uma lista.
+Este projeto é um exercício de JavaScript (ES6+) que cria uma lista de alunos e utiliza o método `filter()` para retornar apenas os aprovados — ou seja, alunos com nota maior ou igual a 6.
 
 ## O que foi feito
 
@@ -9,11 +9,10 @@ Este projeto é um exercício de JavaScript (ES6+) que utiliza o método `filter
 2. **Lista de alunos** — Foi criado um array de objetos em `src/index.js`, onde cada aluno possui:
    - `name`: nome do aluno
    - `grade`: nota
-   - `approved`: indica se foi aprovado (`true` ou `false`)
 
-3. **Filtro com `filter()`** — O método `filter()` percorre a lista e retorna somente os alunos cujo campo `approved` é `true`.
+3. **Função de aprovação** — A função `isStudentApproved` verifica se a nota do aluno é maior ou igual a 6. A função `approveStudents` utiliza `filter()` para retornar somente os alunos que atendem a essa condição.
 
-4. **Saída no console** — O resultado é exibido com `console.log()`.
+4. **Saída no console** — O resultado retornado por `approveStudents()` é exibido com `console.log()`.
 
 ## Estrutura do projeto
 
@@ -23,6 +22,7 @@ exercicio_es6/
 │   └── index.js      # Código-fonte ES6+
 ├── dist/             # Código transpilado (gerado pelo Babel)
 ├── .babelrc          # Configuração do Babel
+├── .gitignore        # Arquivos ignorados pelo Git
 ├── package.json      # Dependências e scripts
 └── README.md
 ```
@@ -53,13 +53,15 @@ npm run build
 
 ```
 [
-  { name: 'Ana Silva', grade: 8.5, approved: true },
-  { name: 'Carla Souza', grade: 9, approved: true },
-  { name: 'Elena Martins', grade: 7.1, approved: true }
+  { name: 'Ana Silva', grade: 8.5 },
+  { name: 'Carla Souza', grade: 9 },
+  { name: 'Elena Martins', grade: 7.1 }
 ]
 ```
 
+Alunos com nota abaixo de 6 (como Bruno, com 4.2, e Diego, com 5.8) não aparecem no resultado.
+
 ## Tecnologias utilizadas
 
-- **JavaScript (ES6+)** — arrow functions, `const`, objetos e o método `filter()`
+- **JavaScript (ES6+)** — arrow functions, `const`, objetos, funções e o método `filter()`
 - **Babel** — transpilação de código moderno para compatibilidade com o ambiente de execução
